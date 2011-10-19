@@ -29,11 +29,15 @@ class EnquiryForm extends Form{
 		if(isset($data['Email']) && Email::is_valid_address($data['Email']))
 			$email->replyTo($data['Email']);
 		$success = $email->send();
-		$content = ($siteconfig && $siteconfig->EnquiryContent) ? $siteconfig->EnquiryContent : '<p>Thanks for your contact. We\'ll be in touch shortly.</p>' ;
+
+		$defaultmessage = "<p class=\"message good\">"._t("Enquiry.SUCCESS","Thanks for your contact. We'll be in touch shortly.")."</p>";
+		$content = ($siteconfig && $siteconfig->EnquiryContent) ? $siteconfig->EnquiryContent : $defaultmessage ;
 
 		if(Director::is_ajax()){
 			return "success";
 		}
+
+		//TODO: submit to a new "Page" pagetype
 		return array(
 				'Title' => 'Contact a Technician',
 				'Content' => $content
