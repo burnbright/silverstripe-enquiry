@@ -39,7 +39,7 @@ class EnquiryForm extends Form{
 
 		//TODO: submit to a new "Page" pagetype
 		return array(
-				'Title' => 'Contact a Technician',
+				'Title' => _t('Enquiry.Singular','Enquiry'),
 				'Content' => $content
 		);
 	}
