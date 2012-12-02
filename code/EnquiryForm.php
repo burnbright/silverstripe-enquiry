@@ -16,6 +16,9 @@ class EnquiryForm extends Form{
 				new FormAction("submitenquiry",_t("EnquiryForm.SUBMIT","Send Enquiry"))
 			);
 		parent::__construct($controller,$name,$fields,$actions,$validator);
+		
+		if(class_exists("SpamProtectorManager"))
+			SpamProtectorManager::update_form($this);
 	}
 
 	function submitenquiry($data,$form){
