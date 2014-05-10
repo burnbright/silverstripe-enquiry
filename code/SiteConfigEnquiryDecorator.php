@@ -1,16 +1,12 @@
 <?php
 
-class SiteConfigEnquiryDecorator extends DataObjectDecorator{
+class SiteConfigEnquiryDecorator extends DataExtension{
 
-	function extraStatics(){
-		return array(
-			'db' => array(
-				'EnquiryContent' => 'HTMLText'
-			)
-		);
-	}
+	private static $db = array(
+		'EnquiryContent' => 'HTMLText'
+	);
 
-	function updateCMSFields(&$fields){
+	function updateCMSFields(FieldList $fields){
 		$fields->addFieldsToTab("Root.EmailEnquiries", array(
 			new HtmlEditorField('EnquiryContent','Content to show after enquiry form has been submitted')
 		));

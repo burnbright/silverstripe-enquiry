@@ -1,6 +1,6 @@
 <?php
 
-class DontShowEnquiryForm extends DataObjectDecorator{
+class DontShowEnquiryForm extends DataExtension{
 
 	function contentcontrollerInit(){
 		$this->owner->DontShowEnquiryForm = true;

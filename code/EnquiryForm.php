@@ -5,14 +5,14 @@ class EnquiryForm extends Form{
 	function __construct($controller,$name,$fields = null,$actions = null,$validator = null){
 
 		if(!$fields)
-			$fields = new FieldSet(
+			$fields = new FieldList(
 				new TextField('Name',_t("EnquiryForm.NAME","Name")),
 				new EmailField('Email',_t("EnquiryForm.EMAIL","Email")),
 				new TextField('Phone',_t("EnquiryForm.PHONE","Phone")),
 				new TextareaField('Message',_t("EnquiryForm.MESSAGE",'Message'))
 			);
 		if(!$actions)
-			$actions = new FieldSet(
+			$actions = new FieldList(
 				new FormAction("submitenquiry",_t("EnquiryForm.SUBMIT","Send Enquiry"))
 			);
 		parent::__construct($controller,$name,$fields,$actions,$validator);

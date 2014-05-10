@@ -1,10 +1,11 @@
 <?php
 
-class EnquiryFormWidget extends Widget {
+if(class_exists("Widget")){
+	class EnquiryFormWidget extends Widget {
 
-	static $db = array();
-	static $title = "EnquiryFormWidget";
-	static $cmsTitle = "EnquiryFormWidget";
-	static $description = "Displays a form for making an enquiry.";
+		static $title = "EnquiryFormWidget";
+		static $cmsTitle = "EnquiryFormWidget";
+		static $description = "Displays a form for making an enquiry.";
 
+	}
 }
