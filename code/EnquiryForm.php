@@ -17,8 +17,9 @@ class EnquiryForm extends Form{
 			);
 		parent::__construct($controller,$name,$fields,$actions,$validator);
 		
-		if(class_exists("SpamProtectorManager"))
-			SpamProtectorManager::update_form($this);
+		if(class_exists('SpamProtectorManager')) {
+			$this->enableSpamProtection();
+		}
 	}
 
 	function submitenquiry($data,$form){
