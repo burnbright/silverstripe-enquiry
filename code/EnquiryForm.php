@@ -35,16 +35,17 @@ class EnquiryForm extends Form{
 			_t("EnquiryForm.SUBJECT","Website Contact");
 		$form->makeReadOnly();
 
-		$data = array(
+		$templateData = array(
 			'Values' => $form->Fields()
 		);
 		if($this->extraemaildata){
-			$data = array_merge($data, $this->extraemaildata);
+			$templateData = array_merge($data, $this->extraemaildata);
 		}
 		$email = new Email(
 			$to, $to, $subject,
-			$this->customise($data)->renderWith($this->emailtemplate)
+			$this->customise($templateData)->renderWith($this->emailtemplate)
 		);
+		
 		if(
 			isset($data['Email']) && 
 			Email::is_valid_address($data['Email'])
